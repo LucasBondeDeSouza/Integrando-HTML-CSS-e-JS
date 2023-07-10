@@ -9,8 +9,40 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>      
+        /* Adicionando a classe 'destaque' no id 'primeiro'  */        
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        /* Adiciona a classe 'destaque' em todas as <Div> */
+        selecionar('div')
+
+        /* Remove a classe 'destaque' em todos os elementos */
+        deselecionar('*')
+
+        /* Adiciona a classe 'destaque' no elemento 'terceiro' e 'ultimo' */
+        selecionar('.terceiro.ultimo')
+        deselecionar('*')
+
+        /* Adiciona a classe 'destaque' em todos os elemntos, menos no id 'primeiro' */
+        selecionar(':not(#primeiro)')
+        deselecionar('*')
+
+        /* Adiciona a classe 'destaque' no primeiro filho de um elemento */
+        selecionar(':nth-child(1)')
+        deselecionar('*')
+
+        /* Adiciona a classe 'destaque' no primeiro elemento do tipo <Div> */
+        selecionar('div:nth-of-type(1)')
+        deselecionar('*')
+
+        selecionar('[wb-attrib]')
+        deselecionar('*')
     </script>
 </body>
 </html>
